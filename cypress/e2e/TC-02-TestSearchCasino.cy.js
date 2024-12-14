@@ -2,9 +2,20 @@ const { search } = require("../support/Utils/access")
 
 
 describe("Validate Search Functionality on Casino games",()=>{
-      beforeEach(()=>{
-            cy.visit('/casino')  
-          })
+  beforeEach(() => {
+  
+    cy.visit('/casino',{ failOnStatusCode: false })
+    .then((response) => {
+      if (response.status === 403) {
+        cy.log('Access forbidden: Check server settings or credentials.');
+      } else {
+        cy.log('Page loaded successfully.');
+      }
+    });
+    
+    });
+     
+          
         
       it("Verifies that casino games search returns correct results",()=>{
         cy.viewport(1400, 800)

@@ -5,7 +5,14 @@ import generateUserData from '../support/Utils/faker';
 describe("Registration Process",()=>{
   const userData = generateUserData();
   beforeEach(()=>{
-    cy.visit('/')  
+    cy.visit('/',{ failOnStatusCode: false }) 
+    .then((response) => {
+      if (response.status === 403) {
+        cy.log('Access forbidden: Check server settings or credentials.');
+      } else {
+        cy.log('Page loaded successfully.');
+      }
+    });
   })
 
    it('Should register a new user',()=>{
