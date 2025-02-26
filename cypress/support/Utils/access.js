@@ -1,5 +1,5 @@
 export const registration = {
-    signupbtn:'.css-1vczc1y > .MuiButtonBase-root',
+    signupbtn:'button.MuiButtonBase-root.buttonPrimary.css-1p8daex span.text.Primary',
     usernamefield:'[placeholder="e.g. John Doe"]',
     emailaddress:'[data-testid="email-input"]',
     country:'.css-lvre3k',
